@@ -1,20 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
-import { useState } from "react";
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './routes/Home'
+import Detail from './routes/Detail'
 
 function App() {
-  const [toDo, setToDo] = useState("");
-  const onChange = (event) => setToDo(event.target.value);
-  // const onSubmit = (event) => event.preventDefault();
   return (
-    <div>
-      <form>
-        <input onChange={onChange} type={toDo} placeholder="Write your to do...." />
-        <button>addbtn</button>
-      </form>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie" element={<Detail />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
